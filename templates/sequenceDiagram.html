@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
+
+    <script src="https://unpkg.com/pako@1.0.10/dist/pako_deflate.min.js"></script>
+
+    <title>Sequence Diagram</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <!--Action Div-->
+            <div class="col-lg-4 card">
+
+                <!--Title Row-->
+                <div class="row g-4 notation-section">
+                    <div class="col-12">
+
+                        <div class="mb-3">
+                            <h1 class="notation-detail-title">
+                                <label for="actor" class="form-label">Sequence Diagram Title</label>
+                                </h3>
+                                <input type="text" class="form-control" id="title-element"
+                                    value="Sequence Diagram Title"
+                                    placeholder="Enter the title for your sequence diagram" required>
+                        </div>
+                        <button type="submit" class="btn diagram-btn-primary float-right"
+                            onclick="changeDiagramTitle()"><i class="fa fa-plus" aria-hidden="true"></i>Change</button>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <!--End of Title Row-->
+
+                <!--Notation Row-->
+                <h1 class="notation-detail-title">Sequence Diagram Notations</h1>
+
+                <!--Actor Row-->
+                <div class="row g-4 notation-section">
+                    <div class="col-12 col-md-4">
+                        <h3 class="notation-title">Actor</h3>
+                        <div class="notation-intro">Shows entities that interact with or are external to the
+                            system.<a href="help.html">Learn more</a></div>
+
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="p-4">
+
+                            <div class="mb-3">
+                                <label for="actor" class="form-label">Actor Name</label>
+                                <input type="text" class="form-control" id="actor-element"
+                                    placeholder="Enter your actor's name" required>
+                            </div>
+                            <button type="submit" class="btn diagram-btn-primary float-right" onclick="addActors()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+                        </div><!--//Actor-body-->
+                    </div>
+                </div>
+                <!--Actor Row End-->
+
+                <!--Object Row-->
+                <hr class="my-4">
+                <div class="row g-4 notation-section">
+                    <div class="col-12 col-md-4">
+                        <h3 class="notation-title">Object</h3>
+                        <div class="notation-intro">Represents a class or object in UML. The object symbol demonstrates
+                            how an object will behave in the context of the system. Class attributes should not be
+                            listed in this shape.<a href="help.html">Learn more</a></div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="p-4">
+
+                            <div class="mb-3">
+                                <label for="object" class="form-label">Object Name</label>
+                                <input type="text" class="form-control" id="object-element"
+                                    placeholder="Enter your object's name" required>
+                            </div>
+
+                            <button  type="submit" class="btn diagram-btn-primary float-right" onclick="addObjectElements()"><i
+                                    class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+                        </div><!--//Actor-body-->
+                    </div>
+                </div>
+                <!--ObjectRow End-->
+                <!--Notation Row End-->
+
+                <!--Relationship Row-->
+                <hr class="my-4">
+                <h2 class="notation-detail-sub-title">Set the message</h2>
+
+                <!--Relationship definition row-->
+                <div class="row g-4 notation-section">
+                    <div class="col-lg-12 margin-auto">
+                        <div class="p-4">
+                            <div id="relationship">
+                                <div class="row mb-3 col-12 margin-auto">
+                                    <div class="col-4 float-right">
+                                        <label for="from-element" class="form-label relation-label">From</label>
+                                    </div>
+                                    <div class="col-6 float-right">
+                                        <select class="form-control form-select" aria-label="from-element"
+                                            id="from-element">
+                                            <option value="none" selected>Select an actor or an object</option>  
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3 col-12 margin-auto">
+                                    <div class="col-4 float-right">
+                                        <label for="to-element" class="form-label relation-label">To</label>
+                                    </div>
+                                    <div class="col-6 float-right">
+                                        <select class="form-control form-select" aria-label="to-element"
+                                            id="to-element">
+                                            <option value="none" selected>Select an actor or an object</option>    
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3 col-12 margin-auto">
+                                    <div class="col-4 float-right">
+                                        <label for="relationship-element"
+                                            class="form-label relation-label">Message Type</label>
+                                    </div>
+                                    <div class="col-6 float-right">
+
+                                        <select class="form-control form-select" aria-label="relationship-element"
+                                            id="relationship-element">
+                                            <option value="none" selected>Choose a relationship</option>
+                                            <option value="sync_message">Synchronous message</option>
+                                            <option value="async_message">Asynchronous message</option>
+                                            <option value="sync_reply">Synchronous Reply</option>
+                                            <option value="async_reply">Asynchronous Reply</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3 col-12 margin-auto">
+                                    <div class="col-4 float-right">
+                                        <label for="object" class="form-label relation-label">Message</label>
+                                    </div>
+                                    <div class="col-6 float-right">
+                                        <input type="text" class="form-control" id="message-element"
+                                            placeholder="Enter message for the relationship" required>
+                                    </div>
+                                </div>
+
+                                <button  type="submit" class="btn diagram-btn-primary float-right" onclick="addMessage()"><i class="fa fa-plus"
+                                        aria-hidden="true"></i>Add</button>
+                                </div>
+                        </div><!--//Actor-body-->
+                    </div>
+                </div>
+                <!--Relationship definition row end-->
+
+                <!--Relation Row end-->
+
+            </div>
+            <!--Action Div End-->
+
+            <!--Diagram Div-->
+            <div class="col-lg-7">
+                <div class="form-block card" style="height: 30%;">
+                    <div class="mb-4 text-center">
+                        <h3 id="diagram-title">Sequence Diagram Title</h3>
+                        <div class="diagram-area">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-block card" style="height: 35%;">
+                    <div class="mb-4 text-center element_table">
+                        <h2 id="diagram-title">Elements</h3>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-block card" style="height: 32%;">
+                    <div class="mb-4 text-center relation_table">
+                        <h2 id="diagram-title">Message Element</h3>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">From</th>
+                                    <th scope="col">To</th>
+                                    <th scope="col">Message Type</th>
+                                    <th scope="col">Message</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--Diagram Div End-->
+        </div>
+    </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='/js/main.js') }}"></script>
+
+</html>

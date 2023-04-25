@@ -1,0 +1,191 @@
+/* Body CSS */
+
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #15a362;
+    --bs-secondary: #5d6778;
+    --bs-success: #5cb377;
+    --bs-danger: #d26d69;
+    --bs-warning: #EEBF41;
+    --bs-info: #5b99ea;
+    --bs-primary-rgb: 21, 163, 98;
+    --bs-secondary-rgb: 93, 103, 120;
+    --bs-success-rgb: 92, 179, 119;
+    --bs-danger-rgb: 210, 109, 105;
+    --bs-warning-rgb: 238, 191, 65;
+    --bs-info-rgb: 91, 153, 234;
+    --bs-white-rgb: 255, 255, 255;
+    --bs-black-rgb: 0, 0, 0;
+    --bs-body-color-rgb: 33, 37, 41;
+    --bs-body-bg-rgb: 255, 255, 255;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-bg: #fff;
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+    --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+    --bs-border-radius: 0.375rem;
+    --bs-border-radius-sm: 0.25rem;
+    --bs-border-radius-lg: 0.5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-2xl: 2rem;
+    --bs-border-radius-pill: 50rem;
+    --bs-heading-color: ;
+    --bs-link-color: #0d6efd;
+    --bs-link-hover-color: #0a58ca;
+    --bs-code-color: #d63384;
+    --bs-highlight-bg: #fff3cd
+}
+
+.container-fluid {
+    padding: 2%;
+    background: #f5f6fe;
+    margin: auto
+}
+
+.card {
+    background: #fff;
+    border: none;
+    padding: 2%;
+    margin: 2%;
+}
+
+.notation-detail-title {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-bottom: 1.5rem
+}
+
+.notation-detail-sub-title {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-bottom: 1rem
+}
+
+.relation-label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important
+}
+
+.notation-section .notation-title {
+    font-size: 1.25rem
+}
+
+.notation-section .notation-intro {
+    font-size: .875rem
+}
+
+.g-4,
+.gx-4 {
+    --bs-gutter-x: 1.5rem
+}
+
+.g-4,
+.gy-4 {
+    --bs-gutter-y: 1.5rem
+}
+
+
+.div-image {
+    text-align: center;
+}
+
+
+/* Custom Button CSS */
+
+.diagram-btn-primary {
+    background: #15a362;
+    color: #fff;
+    border-color: #15a362
+}
+
+.diagram-btn-primary:hover,
+.diagram-btn-primary:active {
+    color: #fff;
+    background: #18ba70;
+    border-color: #18ba70
+}
+
+.btn-primary {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #15a362;
+    --bs-btn-border-color: #15a362;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #38b17a;
+    --bs-btn-hover-border-color: #2cac72;
+    --bs-btn-focus-shadow-rgb: 18, 139, 83;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #44b581;
+    --bs-btn-active-border-color: #2cac72;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #15a362;
+    --bs-btn-disabled-border-color: #15a362
+}
+
+/* Custom Link CSS */
+a {
+    color: #15a362;
+    text-decoration: none
+}
+
+/* Custom Toggle */
+.form-check-input:checked {
+    background-color: #15a362;
+    border-color: #15a362
+}
+
+.float-right {
+    float: right;
+}
+
+.margin-auto {
+    margin: auto
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ced4da;
+    opacity: 1; /* Firefox */
+}
+
+#relationship option{
+    font-size: 14px;
+}
+
+#from-element, #to-element, #relationship-element, #message-element{
+    font-size: 14px;
+}
